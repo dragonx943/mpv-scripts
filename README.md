@@ -1,6 +1,6 @@
 ### Script dùng trong mpv: https://github.com/mpv-player/mpv
 
-### Req: mpv, yt-dlp, ffmpeg 👌
+### Yêu cầu cài sẵn: mpv, yt-dlp, ffmpeg là oke, clone repo xong chuyển về đúng thư mục trong mpv là dùng 👌
 
 ### YouTube (Với Keyword):
 
@@ -34,4 +34,4 @@ $ mpv --no-video "https://www.youtube.com/watch?v=Ic-gZlPFTkQ"
 
 **Phát Media = Tự động nhận "Playing" mpv trên Discord, yêu cầu bật sẵn Discord!**
 
-#### --> Dùng những Script mpv này thay thế cho ytms: https://github.com/dragonx943/ytms
+### --> Dùng những Script mpv này thay thế cho ytms: https://github.com/dragonx943/ytms. Nếu chỉ xem Video, không nghe tiếng thì Mute trong mpv hoặc dùng `--no-audio` 👌
