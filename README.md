@@ -1,8 +1,8 @@
 ### Script dùng trong mpv: https://github.com/mpv-player/mpv
 
-### Cài đặt: 
+### - Cài đặt: 
 
-**1. Cài đặt package:**
+**1. Cài đặt các package cần thiết:**
 
 ```
 python -> yt-dlp, ffmpeg, mpv
