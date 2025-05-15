@@ -2,7 +2,7 @@
 
 ### Req: mpv, yt-dlp, ffmpeg 👌
 
-### YouTube:
+### YouTube (Với Keyword):
 
 ```bash
 $ mpv "youtube:keyword"
@@ -10,13 +10,25 @@ $ mpv "youtube:keyword"
 
 **Thay thế `keyword` thành từ khoá tìm kiếm trên YouTube**
 
-### YouTube (Chỉ Audio):
+### YouTube (Với Keyword, chỉ có Audio):
 
 ```bash
 $ mpv --no-video "youtube:keyword"
 ```
 
 **Thay thế `keyword` thành từ khoá tìm kiếm trên YouTube**
+
+### YouTube (Với URL):
+
+```bash
+$ mpv "https://www.youtube.com/watch?v=Ic-gZlPFTkQ"
+```
+
+### YouTube (Với URL, chỉ có Audio):
+
+```bash
+$ mpv --no-video "https://www.youtube.com/watch?v=Ic-gZlPFTkQ"
+```
 
 ### Discord RPC:
 
