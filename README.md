@@ -21,3 +21,5 @@ $ mpv --no-video "youtube:keyword"
 ### Discord RPC:
 
 **Phát Media = Tự động nhận "Playing" mpv trên Discord, yêu cầu bật sẵn Discord!**
+
+#### Script này dùng thay thế cho ytms: https://github.com/dragonx943/ytms
