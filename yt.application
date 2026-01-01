@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=/bin/yt
+Icon=youtube-music-desktop-app
+StartupNotify=false
+Terminal=false
+Categories=Utility;
+Name[vi]=YouTube Music
+Name=YouTube Music
+Comment[vi]=Bật YouTube Music trên mpv
+Comment=Turn on YouTube Music by mpv
