@@ -1,0 +1,69 @@
+#!/bin/bash
+
+set -u
+
+LOG() { echo "[INFO] $*"; }
+ERR() { echo "[ERROR] $*" >&2; }
+
+LOG "Script started"
+
+LINK=$(zenity --entry \
+  --title="YouTube Audio Player" \
+  --text="Enter YouTube link:")
+
+[ -z "$LINK" ] && { ERR "No link provided"; exit 1; }
+
+LOG "Input link: $LINK"
+
+zenity --question \
+  --title="Loop?" \
+  --text="Loop similar songs?"
+
+LOOP=$([ $? -eq 0 ] && echo true || echo false)
+LOG "Loop: $LOOP"
+
+zenity --question \
+  --title="Similar Songs" \
+  --text="Play top 10 similar songs?"
+
+if [ $? -ne 0 ]; then
+  LOG "Playing single song"
+  exec mpv --no-video "$LINK"
+fi
+
+LOG "Resolving video title (forcing single video)..."
+
+TITLE=$(yt-dlp --no-playlist --get-title "$LINK" 2>/dev/null | head -n 1)
+
+if [ -z "$TITLE" ]; then
+  ERR "Failed to get title"
+  exit 1
+fi
+
+LOG "Title resolved: $TITLE"
+
+while :; do
+  LOG "Searching for similar songs..."
+
+  IDS=$(yt-dlp --no-playlist "ytsearch10:$TITLE" --get-id 2>/dev/null)
+
+  if [ -z "$IDS" ]; then
+    ERR "No similar songs found"
+    exit 1
+  fi
+
+  i=0
+  for ID in $IDS; do
+    i=$((i+1))
+    URL="https://www.youtube.com/watch?v=$ID"
+
+    LOG "Playing [$i/10]: $URL"
+    mpv --no-video "$URL"
+    LOG "Finished [$i/10]"
+  done
+
+  [ "$LOOP" = false ] && break
+  LOG "Looping again"
+done
+
+LOG "Script finished"
